@@ -28,6 +28,7 @@ export class PokemonComponent implements OnInit {
   ngOnInit() {
     this.getPokemon.getPokemons().subscribe(data => {
       this.pokemons = data?.results;
+      
     this.loadImage();     
       console.log(data);
     });

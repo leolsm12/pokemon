@@ -15,16 +15,22 @@ export class GetPokemonService {
   constructor(private http: HttpClient,) {}
 
 
-  async loadNext(){
+  loadNext(){
     this.offset += 20;
     this.getPokemons();
     
   }
   loadPrevious(){
-    this.offset -= 20;
-    this.getPokemons();
+    if(this.offset === 0){
+      this.offset = 0
+    }else{
+      this.offset -= 20;
+      this.getPokemons();
+    };
+    
     
   }
+
   
   getPokemons(): Observable<{results: IPokemon[]}> {
     return this.http.get<{results: IPokemon[]}>(`${this.myURL}?limit=20&offset=${this.offset}`);
