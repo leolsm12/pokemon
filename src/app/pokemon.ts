@@ -30,4 +30,8 @@ export interface IPokeFoto{
     tipo: string [];
     number: number;
 }
-    
+export interface IPokeEvo {
+    species:string, url:string;
+    species1: string, url1:string;
+    species2: string, url2:string;
+}

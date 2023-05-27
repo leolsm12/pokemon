@@ -1,16 +1,18 @@
-ul {
+ul {    
     columns: 4;
     column-gap: 20px;
-    padding-left: 0px;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 li {
     list-style: none;
+    
 }
 
 .card{
     overflow:hidden;
-    border-radius: 25px;
+    border-radius:50px;
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -25,6 +27,7 @@ li {
 .card-title {
     text-align: center;
     font-weight: bold;
+    font-size: 20px;
 }
 
 .pk-num{
@@ -35,8 +38,7 @@ li {
     flex: 1;
     border-radius: 25px;
     margin-left: auto;
-    margin-right: auto; 
-     
+    margin-right: auto;  
 }
 
 .btn-group{
@@ -47,7 +49,9 @@ li {
     margin-top: 4px;
     margin-left: 10%;
     width: 80%;
- 
+}
+.button-botton{
+    margin-top: -16px;
 }
 
 .previous {
@@ -67,7 +71,6 @@ li {
 
 .poke{
     display:flex;
-
 }
 
 .detalhes-pk {
@@ -80,6 +83,62 @@ li {
     background-color: aliceblue;
     margin: 0px -10px -11px -10px; 
     border-radius: 25px;
+    overflow: hidden;
+}
+
+.nav-tabs {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    padding: 0;
+    margin: -16px;
+    margin-left: -22px;
+}
+
+.nav-link{
+    
+    margin-left: 5px;
+    width: 100%;
+}
+
+.nav-item {
+    margin-right: -20px;
+    width: 33%;
+}
+
+.stats {
+    width: 90%;
+    text-align: center;
+    color : black;
+    font-weight: 600;
+}
+
+.evo {
+    width: 112%;
+    margin-left: -5px;
+    color : black;
+    font-weight: 600;
+}
+
+.info {
+    text-align: center;
+    color : black;
+    font-weight: 600;
+}
+
+.tab-content{
+    margin-top: 35px;
+}
+
+.pokeDetail {
+    width: 300px;
+    margin-left: 5px;
+}
+.name{
+    text-align: center;
+}
+.number{
+    
 }
 
 .grass {

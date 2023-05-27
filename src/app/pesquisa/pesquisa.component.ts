@@ -9,6 +9,7 @@ import { IPokemon } from '../pokemon';
 })
 export class PesquisaComponent implements OnInit {
   pokemons: IPokemon[] = [];
+ 
 
   constructor(private getPokemonService: GetPokemonService) {}
 
@@ -18,4 +19,8 @@ export class PesquisaComponent implements OnInit {
       console.log(data.results);
     });
   }
+
+
+
 }
+

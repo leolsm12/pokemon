@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GetPokemonService } from '../get-pokemon.service';
-import { IPokemon, IPokeFoto } from '../pokemon';
+import { IPokemon, IPokeFoto, IPokeEvo } from '../pokemon';
 
 
 
@@ -17,7 +17,8 @@ export class PokemonComponent implements OnInit {
   poke = false;
   pokemonsFotos: any = [];
   pokemon: IPokemon | null = null;
-  evo = false;
+  activeTab = 1;
+  
 
   
   
@@ -28,11 +29,11 @@ export class PokemonComponent implements OnInit {
     this.getPokemon.getPokemons().subscribe(data => {
       this.pokemons = data?.results;
     this.loadImage();     
-      
+      console.log(data);
     });
     console.log(this.getPokemon.offset);
-
   }
+
   loadImage() {
     this.pokemonsFotos = [];
     for (const pokemon of this.pokemons) {
@@ -44,15 +45,14 @@ export class PokemonComponent implements OnInit {
           tipo: data.types[0].type.name,
           number: data.id
         };
-        this.pokemonsFotos.push(novaFoto);       
+        this.pokemonsFotos.push(novaFoto);
+        this.pokemonsFotos.sort((a: { number: number; }, b: { number: number; }) => a.number - b.number);
+              
       });
+       
     } 
-    
-    console.log(this.pokemonsFotos);     
-    
-
+    console.log(this.pokemonsFotos);
   }
-
 
 loadNext() {  
     this.getPokemon.loadNext();
@@ -76,6 +76,12 @@ loadNext() {
     this.loadImage();
   }
 
+ 
+
+  changeTab(tabNumber: number) {
+    this.activeTab = tabNumber;
+  }
+
   getPokemonDetails(url: string) {
     console.log(url);
    
@@ -94,12 +100,25 @@ loadNext() {
       data.stats.forEach((stat: { stat: any; }) => {
         this.pokemonDetails.stats.push(stat);
       });
-      console.log(this.pokemonDetails.stats);
       const evoUrl = data.species.url;
       this.getPokemon.getPokemonDetails(evoUrl).subscribe((data: any) => {
         const url2 = data.evolution_chain.url;
-        console.log(url2);
+        this.getPokemon.getPokemonDetails(url2).subscribe((data: any) => {
+          console.log(data);
+           const newEvo: IPokeEvo = {
+             species: data.chain.species.name, url:data.chain.species.url, 
+             species1: data.chain.evolves_to[0].species.name, url1: data.chain.evolves_to[0].species.url,
+             species2: data.chain.evolves_to[0].evolves_to[0].species.name, url2:data.chain.evolves_to[0].evolves_to[0].species.url,
+           }
+           console.log(newEvo);
+          //data.chain.species.name,
+          //chain.evolves_to[0].species.name,
+          //chain.evolves_to[0].evolves_to[0].species.name,
+
+        });
+        
       });
+      
       
       this.pokemonDetails.url = url;
       
