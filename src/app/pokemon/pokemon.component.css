@@ -75,13 +75,14 @@
 }
 
 .detalhes-pk {
+    
     margin-left: 10px;
-    margin-right: auto;
+    margin-right: -580px;
     flex: 1;
 }
 
 .detail-card{
-    background-color: aliceblue;
+    background-color: rgb(115, 117, 119);
     margin: 0px -10px -11px -10px; 
     border-radius: 25px;
     overflow: hidden;
@@ -97,7 +98,6 @@
 }
 
 .nav-link{
-    
     margin-left: 5px;
     width: 100%;
 }
@@ -108,23 +108,27 @@
 }
 
 .stats {
+    margin-left: 25px;
     width: 90%;
     text-align: center;
     color : black;
     font-weight: 600;
+    background-color: yellow;
 }
 
 .evo {
     width: 112%;
-    margin-left: -5px;
+    margin-left: 35px;
     color : black;
     font-weight: 600;
+    background-color: blueviolet;
 }
 
 .info {
     text-align: center;
     color : black;
     font-weight: 600;
+    background-color: aqua;
 }
 
 .tab-content{
