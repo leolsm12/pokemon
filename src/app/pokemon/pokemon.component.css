@@ -9,6 +9,7 @@
   width: 25%; /* Dividindo em 4 colunas (100% / 4) */
   box-sizing: border-box;
   padding: 10px;
+  cursor: pointer;
 }
 
 .card{
@@ -82,7 +83,7 @@
 }
 
 .detail-card{
-    background-color: rgb(115, 117, 119);
+    background-color: white;
     margin: 0px -10px -11px -10px; 
     border-radius: 25px;
     overflow: hidden;
@@ -95,6 +96,12 @@
     padding: 0;
     margin: -16px;
     margin-left: -22px;
+    margin-top: -20px;
+    cursor: pointer;
+   
+}
+.stat-number{
+    margin-left: 5px;
 }
 
 .nav-link{
@@ -113,7 +120,7 @@
     text-align: center;
     color : black;
     font-weight: 600;
-    background-color: yellow;
+    background-color: rgb(199, 199, 199);
 }
 
 .evo {
@@ -121,14 +128,14 @@
     margin-left: 35px;
     color : black;
     font-weight: 600;
-    background-color: blueviolet;
+    background-color: rgb(199, 199, 199);
 }
 
 .info {
     text-align: center;
     color : black;
     font-weight: 600;
-    background-color: aqua;
+    background-color: rgb(199, 199, 199);
 }
 
 .tab-content{

@@ -45,12 +45,29 @@
             <p class="peso">peso{{ pokemonDetails.peso | convertToKilograms  }} kg </p>
         </div>
         <div *ngIf="activeTab === 2">
-            <p>{{ pokemonDetails.stats[0].stat.name }} {{ pokemonDetails.stats[0].base_stat }}</p>
+            <p>{{ pokemonDetails.stats[0].stat.name }}</p>
+              <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" [ngStyle]="{'width.%':  pokemonDetails.stats[0].base_stat }">{{ pokemonDetails.stats[0].base_stat }}</div>
+              </div>
+              <div class="row">
+                <div class="col stat-name">{{ pokemonDetails.stats[0].stat.name }}</div>
+                <div class="col stat-number">
+                  <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" [ngStyle]="{'width.%': pokemonDetails.stats[0].base_stat}">
+                      {{ pokemonDetails.stats[0].base_stat }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
             <p>{{ pokemonDetails.stats[1].stat.name}} {{ pokemonDetails.stats[1].base_stat }}</p>
             <p>{{ pokemonDetails.stats[2].stat.name}} {{ pokemonDetails.stats[2].base_stat }}</p>
             <p>{{ pokemonDetails.stats[3].stat.name.replace('-',' ')}} {{ pokemonDetails.stats[3].base_stat }}</p>
             <p>{{ pokemonDetails.stats[4].stat.name.replace('-',' ')}} {{ pokemonDetails.stats[4].base_stat }}</p>
             <p>{{ pokemonDetails.stats[5].stat.name}} {{ pokemonDetails.stats[5].base_stat }}</p>
+            <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 5%"></div>
+            </div>
         </div>
         <div *ngIf="activeTab === 3">
               

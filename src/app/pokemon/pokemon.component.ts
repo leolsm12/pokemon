@@ -18,7 +18,7 @@ export class PokemonComponent implements OnInit {
   pokemonsFotos: any = [];
   pokemon: IPokemon | null = null;
   activeTab = 1;
-  
+  valor: number = 75;
 
   
   
@@ -47,47 +47,34 @@ export class PokemonComponent implements OnInit {
           number: data.id
         };
         this.pokemonsFotos.push(novaFoto);
-        this.pokemonsFotos.sort((a: { number: number; }, b: { number: number; }) => a.number - b.number);
-              
-      });
-       
+        this.pokemonsFotos.sort((a: { number: number; }, b: { number: number; }) => a.number - b.number);     
+      }); 
     } 
-    console.log(this.pokemonsFotos);
   }
 
-loadNext() {  
+  loadNext() {  
     this.getPokemon.loadNext();
     this.getPokemon.getPokemons().subscribe((data) => {
       this.pokemons = data?.results;
-      
-    });
-    console.log(this.getPokemon.offset);
-    
-    this.loadImage();
-            
+      this.loadImage();
+      console.log(this.getPokemon.offset);
+   });
   }
 
   loadPrevious() {
     this.getPokemon.loadPrevious();
     this.getPokemon.getPokemons().subscribe((data) => {
       this.pokemons = data?.results;
-      
+      this.loadImage();      
     });
-    console.log(this.getPokemon.offset);
-    this.loadImage();
   }
-
- 
 
   changeTab(tabNumber: number) {
     this.activeTab = tabNumber;
   }
 
-  getPokemonDetails(url: string) {
-    console.log(url);
-   
+  getPokemonDetails(url: string) {   
     this.getPokemon.getPokemonDetails(url).subscribe((data: any) => {
-      
       this.pokemonDetails.numero = data.id;
       this.pokemonDetails.name = data.name.replace('-', ' ');
       this.pokemonDetails.tipo = data.types[0].type.name;
@@ -112,19 +99,10 @@ loadNext() {
              species2: data.chain.evolves_to[0].evolves_to[0].species.name, url2:data.chain.evolves_to[0].evolves_to[0].species.url,
            }
            console.log(newEvo);
-          //data.chain.species.name,
-          //chain.evolves_to[0].species.name,
-          //chain.evolves_to[0].evolves_to[0].species.name,
-
         });
-        
-      });
-      
-      
+      });      
       this.pokemonDetails.url = url;
-      
       console.log(this.pokemonDetails.especies);
     });
   }
-
 }
