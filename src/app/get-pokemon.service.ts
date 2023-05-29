@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class GetPokemonService {
   myURL = "https://pokeapi.co/api/v2/pokemon";
-  offset =1260;
+  offset = 0;
   
   
   constructor(private http: HttpClient,) {}

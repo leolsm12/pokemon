@@ -26,6 +26,7 @@ export interface Evolucao {
 export interface IPokeFoto{
     nome: string;
     foto: string;
+    fotoR: string;
     url: string;
     tipo: string [];
     number: number;

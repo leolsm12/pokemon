@@ -1,14 +1,12 @@
 .lista-pk ul {    
     list-style: none;
-    padding: 0;
-    margin: 0;
+    margin: 0px 0px 10px 8%;
 }
 
 .lista-pk li {
   display: inline-block;
-  width: 25%; /* Dividindo em 4 colunas (100% / 4) */
   box-sizing: border-box;
-  padding: 10px;
+  margin: 5px 5px 5px 5px;
   cursor: pointer;
 }
 
@@ -30,6 +28,10 @@
     text-align: center;
     font-weight: bold;
     font-size: 20px;
+}
+.card-list {
+    width: 180px;
+    height: 210px;
 }
 
 .pk-num{
@@ -68,7 +70,6 @@
 
 .pk-img {
     width: 140px;
-    margin-left: 10%;
 }
 
 .poke{
@@ -76,10 +77,8 @@
 }
 
 .detalhes-pk {
-    
     margin-left: 10px;
-    margin-right: -580px;
-    flex: 1;
+    
 }
 
 .detail-card{
@@ -101,7 +100,26 @@
    
 }
 .stat-number{
-    margin-left: 5px;
+    margin-left: -158px;
+    margin-top: 8px;
+}
+.stat-name{
+    margin-bottom: 5px;
+    font-weight: 600;
+    
+  
+}
+.stat-comp{
+    margin-bottom: -14px;
+}
+#porcentagem-composta{
+    margin-top: 11px;
+}
+.progress {
+    height: 12px;
+}
+.progress-bar {
+    background-color: black;
 }
 
 .nav-link{
@@ -144,7 +162,7 @@
 
 .pokeDetail {
     width: 300px;
-    margin-left: 5px;
+    margin: 8px 48px 0px 0px
 }
 .name{
     text-align: center;

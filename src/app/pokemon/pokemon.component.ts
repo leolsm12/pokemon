@@ -42,11 +42,12 @@ export class PokemonComponent implements OnInit {
         const novaFoto: IPokeFoto = {
           nome: data.name.replace(/-/g, ' '),
           foto: data.sprites.other['official-artwork'].front_default,
+          fotoR:data.sprites.other['official-artwork'].front_shiny,
           url: pokemon.url,
           tipo: data.types[0].type.name,
           number: data.id
         };
-        this.pokemonsFotos.push(novaFoto);
+        this.pokemonsFotos.push(novaFoto);      
         this.pokemonsFotos.sort((a: { number: number; }, b: { number: number; }) => a.number - b.number);     
       }); 
     } 
