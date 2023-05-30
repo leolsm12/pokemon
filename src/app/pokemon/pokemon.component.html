@@ -6,7 +6,7 @@
 <div class="lista-pk">
     <ul>
         <li *ngFor="let pokemon of pokemonsFotos ">
-            <div class="card card-list {{ pokemon.tipo }}" (click)="poke = true;" (click)="getPokemonDetails(pokemon.url)"  >
+            <div (click)="scrollToTop()" class="card card-list {{ pokemon.tipo }}" (click)="poke = true;" (click)="getPokemonDetails(pokemon.url)"  >
                 <div class="card-body">
                   <img  class="pk-img" [src]="pokemon.foto ? pokemon.foto: pokemon.fotoR " alt="{{ pokemon.name }}">
                   <h5 class="pk-num">#{{ pokemon.number }}</h5>

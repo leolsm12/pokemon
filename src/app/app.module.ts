@@ -8,10 +8,10 @@ import { CommonModule } from '@angular/common';
 import { CapitalizePipe, ConvertToCentimetersPipe, ConvertToKilogramsPipe } from './convert-to-unidades.pipe';
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { InformacoesComponent } from './informacoes/informacoes.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,8 @@ import { InformacoesComponent } from './informacoes/informacoes.component';
     PesquisaComponent,
     PesquisaComponent,
     InformacoesComponent,
-    CapitalizePipe
+    CapitalizePipe,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

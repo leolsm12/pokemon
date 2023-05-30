@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { GetPokemonService } from '../get-pokemon.service';
 import { IPokemon, IPokeFoto, IPokeEvo } from '../pokemon';
 
@@ -23,7 +23,10 @@ export class PokemonComponent implements OnInit {
   
   
 
-  constructor(public getPokemon: GetPokemonService) { }
+  constructor(
+    public getPokemon: GetPokemonService,
+    private renderer: Renderer2
+    ) { }
   
   ngOnInit() {
     this.getPokemon.getPokemons().subscribe(data => {
@@ -105,5 +108,12 @@ export class PokemonComponent implements OnInit {
       this.pokemonDetails.url = url;
       console.log(this.pokemonDetails.especies);
     });
+  }
+
+  scrollToTop() {
+    const top = 0;
+    const behavior = 'smooth';
+    this.renderer.setProperty(document.documentElement, 'scrollTop', top);
+    this.renderer.setProperty(document.body, 'scrollTop', top);
   }
 }
