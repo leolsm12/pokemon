@@ -4,6 +4,7 @@ import { IPokemon, IPokeFoto, IPokeEvo } from '../pokemon';
 
 
 
+
 @Component({
   selector: 'app-pokemon',
   templateUrl: './pokemon.component.html',
@@ -19,6 +20,10 @@ export class PokemonComponent implements OnInit {
   pokemon: IPokemon | null = null;
   activeTab = 1;
   valor: number = 75;
+  itemSelecionado: number = -1;
+  elementosLi = document.querySelectorAll('.lista-pk li');
+  cardSelected = true;
+  
 
   
   
@@ -31,11 +36,8 @@ export class PokemonComponent implements OnInit {
   ngOnInit() {
     this.getPokemon.getPokemons().subscribe(data => {
       this.pokemons = data?.results;
-      
     this.loadImage();     
-      console.log(data);
-    });
-    console.log(this.getPokemon.offset);
+    });    
   }
 
   loadImage() {
@@ -52,6 +54,7 @@ export class PokemonComponent implements OnInit {
         };
         this.pokemonsFotos.push(novaFoto);      
         this.pokemonsFotos.sort((a: { number: number; }, b: { number: number; }) => a.number - b.number);     
+        this.cardSelected = true;
       }); 
     } 
   }
@@ -61,7 +64,9 @@ export class PokemonComponent implements OnInit {
     this.getPokemon.getPokemons().subscribe((data) => {
       this.pokemons = data?.results;
       this.loadImage();
-      console.log(this.getPokemon.offset);
+      this.poke = false;
+      this.cardSelected = false; 
+      this.selecionarItem(0);
    });
   }
 
@@ -69,12 +74,28 @@ export class PokemonComponent implements OnInit {
     this.getPokemon.loadPrevious();
     this.getPokemon.getPokemons().subscribe((data) => {
       this.pokemons = data?.results;
-      this.loadImage();      
+      this.loadImage(); 
+      this.poke = false 
+      this.cardSelected = false; 
+      this.selecionarItem(0);    
     });
   }
 
   changeTab(tabNumber: number) {
     this.activeTab = tabNumber;
+  }
+  selecionarItem(index: number) {
+    if(this.cardSelected === true){
+    this.itemSelecionado = index;
+    } else {
+      this.itemSelecionado = 21;
+    } 
+  }
+
+  div(){
+    document.querySelectorAll('.lista-pk li').forEach((elementoLi): void => {
+      this.renderer.setStyle(elementoLi, 'width', '20%');
+    });
   }
 
   getPokemonDetails(url: string) {   
@@ -89,9 +110,7 @@ export class PokemonComponent implements OnInit {
       this.pokemonDetails.peso = data.weight;
       this.pokemonDetails.altura = data.height;
       this.pokemonDetails.stats = [];
-      data.stats.forEach((stat: { stat: any; }) => {
-        this.pokemonDetails.stats.push(stat);
-      });
+      data.stats.forEach((stat: { stat: any; }) => {this.pokemonDetails.stats.push(stat);});
       const evoUrl = data.species.url;
       this.getPokemon.getPokemonDetails(evoUrl).subscribe((data: any) => {
         const url2 = data.evolution_chain.url;
@@ -102,11 +121,9 @@ export class PokemonComponent implements OnInit {
              species1: data.chain.evolves_to[0].species.name, url1: data.chain.evolves_to[0].species.url,
              species2: data.chain.evolves_to[0].evolves_to[0].species.name, url2:data.chain.evolves_to[0].evolves_to[0].species.url,
            }
-           console.log(newEvo);
         });
       });      
       this.pokemonDetails.url = url;
-      console.log(this.pokemonDetails.especies);
     });
   }
 
