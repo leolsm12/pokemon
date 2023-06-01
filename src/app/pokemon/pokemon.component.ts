@@ -8,7 +8,7 @@ import { IPokemon, IPokeFoto, IPokeEvo } from '../pokemon';
 @Component({
   selector: 'app-pokemon',
   templateUrl: 'pokemon.component.html',
-  styleUrls: ['pokemon.component.css', "pokemon1.component.css"]
+  styleUrls: ['pokemon.component.css', 'background.pokemon.css', 'responsive.pokemon.css']
 })
 export class PokemonComponent implements OnInit {
   
@@ -21,7 +21,7 @@ export class PokemonComponent implements OnInit {
   activeTab = 1;
   valor: number = 75;
   itemSelecionado: number = -1;
-  elementosLi = document.querySelectorAll('.lista-pk li');
+  // elementosLi = document.querySelectorAll('.lista-pk li');
   cardSelected = true;
   evolucoes: IPokeEvo[] = [] ;
   
@@ -68,6 +68,7 @@ export class PokemonComponent implements OnInit {
       this.poke = false;
       this.cardSelected = false; 
       this.selecionarItem(0);
+      this.divOff(); 
    });
   }
 
@@ -78,7 +79,8 @@ export class PokemonComponent implements OnInit {
       this.loadImage(); 
       this.poke = false 
       this.cardSelected = false; 
-      this.selecionarItem(0);    
+      this.selecionarItem(0);  
+      this.divOff();  
     });
   }
 
@@ -99,6 +101,11 @@ export class PokemonComponent implements OnInit {
     });
     document.querySelectorAll('.lista-pk').forEach((elementoLi): void => {
       this.renderer.setStyle(elementoLi, 'left', '1rem');
+    });
+  }
+  divOff(){
+    document.querySelectorAll('.lista-pk').forEach((elementoLi): void => {
+      this.renderer.setStyle(elementoLi, 'left','');
     });
   } 
 

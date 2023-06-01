@@ -68,6 +68,7 @@
     background-position: top;
     background-repeat: no-repeat;
     right: 7rem;
+    margin-top: 10px;
 }
 .button-detail-card{
     overflow:hidden;

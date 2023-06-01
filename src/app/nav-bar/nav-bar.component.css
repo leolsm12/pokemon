@@ -49,11 +49,24 @@ a {
         margin-left: 70px;
     }
     .icon i {
-        margin-left: 40px;
+        position: relative;
+        left: 4rem;
     }
     .icon {
         width: 25px;
         margin-left: 20px;
+    }
+    .poke{
+        position: relative;
+        right: 1.5rem;
+    }
+    .info{
+        position: relative;
+
+    }
+    .pesquisa {    
+        position: relative;
+        right: 0.5rem;
     }
     
 }

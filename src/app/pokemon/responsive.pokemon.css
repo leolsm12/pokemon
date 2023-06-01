@@ -1,0 +1,67 @@
+@media (max-width: 440px) {
+    .lista-pk ul {   
+        list-style: none;
+        position: relative;
+        margin-left: 1.2rem;
+        column-gap: 80px;
+    }
+    .lista-pk li {
+        display: inline-block;
+        width: 20%;
+        box-sizing: border-box;
+        cursor: pointer;
+        position: relative;
+        right: 10px;
+    }
+    .card-list {
+        width: 145px;
+        height: 125px;
+    }  
+    .pk-img {
+        width: 70px;
+        margin: 0px 0px 0px 7px;
+    }  
+    .pk-num{
+        font-size: 10px;
+    }
+    .card-title {
+        font-size: 14px;
+    }
+    .lista-pk {
+        position: relative;
+        left: 1rem;
+        margin-right: 0rem;
+    }
+
+    .previous {
+       height:25px ;
+       line-height:2px;
+    }
+    .next {
+        height: 25px;
+        line-height:2px;
+    }
+    .poke {
+        flex-direction: column-reverse;
+    }
+    .pokeDetail {
+        position: relative;
+        width: 80%;
+        height: 700px;
+        left: 9%;
+        margin-bottom: 30px;
+        margin-top: 10px;
+    }
+    
+    .button-detail-card{
+        overflow:hidden;
+        position: absolute;
+        width: 102%;
+        height: 2.5rem; 
+        top: 0;
+        left: -2px;
+    }
+
+
+
+}
