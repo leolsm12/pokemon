@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { InformacoesComponent } from './informacoes/informacoes.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     PesquisaComponent,
     InformacoesComponent,
     CapitalizePipe,
-    NavBarComponent
+    NavBarComponent,
+
   ],
   imports: [
     BrowserModule,

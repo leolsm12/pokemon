@@ -6,40 +6,32 @@
 <div class="lista-pk">
     <ul>
         <li *ngFor="let pokemon of pokemonsFotos; let i = index">
-            <div 
-            [class.selecionado]="itemSelecionado === i" 
-            class="card card-list {{ pokemon.tipo }}" 
+            <div
+            [class.selecionado]="itemSelecionado === i"
+            class="card card-list {{ pokemon.tipo }}"
             (click)="poke = true; div(); getPokemonDetails(pokemon.url); scrollToTop(); selecionarItem(i); this.cardSelected = true"
               >
                 <div class="card-body">
-                  <img  class="pk-img" [src]="pokemon.foto ? pokemon.foto: pokemon.fotoR " alt="{{ pokemon.name }}">
+                  <img class="pk-img" [src]="pokemon.foto ? pokemon.foto: pokemon.fotoR " alt="{{ pokemon.name }}" >
                   <h5 class="pk-num">#{{ pokemon.number }}</h5>
                   <h3 class="card-title"> {{ pokemon.nome.replace('-', ' ') | capitalize }} </h3>
                 </div>
               </div>
-        </li>
-    </ul>
-</div>
+          </li>
+      </ul>
+  </div>
 <div *ngIf="poke" class= "detalhes-pk">
   <div class=" card pokeDetail {{ pokemonDetails.tipo }} "  >
     <img [src]="pokemonDetails.imagem" alt=" {{pokemonDetails.name}}">
-
-    <div class="card-body detail-card">
-      <ul class="nav nav-tabs card-header-tabs">
-        <li class="nav-item ">
-          <p class="nav-link info " [class.active]="activeTab === 1" (click)="changeTab(1)">info</p>
-        </li>
-        <li class="nav-item ">
-          <p class="nav-link stats " [class.active]="activeTab === 2" (click)="changeTab(2)">stats</p>
-        </li>
-        <li class="nav-item ">
-          <p class="nav-link evo " [class.active]="activeTab === 3" (click)="changeTab(3)">evoluçoes</p>
-        </li>
-      </ul>
-      
-      <div class="tab-content">
+    <div class="card-body tab-content">
+      <div class="btn-group button-detail-card">
+        <a class="btn  info" [class.active]="activeTab === 1" (click)="changeTab(1)" >Info</a>
+        <a class="btn  stats" [class.active]="activeTab === 2" (click)="changeTab(2)">Stats</a>
+        <a class="btn  evo" [class.active]="activeTab === 3" (click)="changeTab(3)">Evo</a>
+      </div>
+      <div class="detail-card">
         <div *ngIf="activeTab === 1">
-            <h2 class="name">{{ pokemonDetails.name | capitalize  }}</h2>
+            <h2 class="name  {{ pokemonDetails.tipos[0] }} " >{{ pokemonDetails.name | capitalize  }}</h2>
             <h2 class="number">#{{ pokemonDetails.numero}}</h2>
             <h2>{{ pokemonDetails.evolucoes}}</h2>
             <p class="tipo">{{ pokemonDetails.tipos[0] }} {{ pokemonDetails.tipos[1] }}</p>
@@ -116,14 +108,20 @@
           </div>
         </div>
         <div *ngIf="activeTab === 3">
-              
+          <div *ngFor="let evo of evolucoes">
+            <p>{{ evo.species}}</p>
+            <p>{{ evo.species1}}</p>
+            <p>{{ evo.species2}}</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+
 </div>
 </div>
-<div class="btn-group button-botton" role="group" aria-label="Basic example">
-  <button (click)="loadPrevious()" type="button" class="btn previous">anterior</button>
-  <button (click)="loadNext()" type="button" class="btn next">proximo</button>
+ <div class="btn-group bnp button-botton" role="group" aria-label="Basic example">
+  <button (click)="loadPrevious();" type="button" class="btn previous">anterior</button>
+  <button (click)="loadNext();"type="button" class="btn next">proximo</button>
 </div>

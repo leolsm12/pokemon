@@ -34,8 +34,6 @@ export class GetPokemonService {
   }
   getPokemons(): Observable<{results: IPokemon[]}> {
     return this.http.get<{results: IPokemon[]}>(`${this.myURL}?limit=20&offset=${this.offset}`);
-    
-  
   }
   
   getPokemonDetails(url: string): Observable<IPokemon> {

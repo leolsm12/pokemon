@@ -1,6 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({ name: 'convertToCentimeters' })
+@Pipe({
+   name: 'convertToCentimeters' })
+   
 export class ConvertToCentimetersPipe implements PipeTransform {
   transform(value: number, ...args: any[]): any {
     if (value) {
@@ -9,7 +11,6 @@ export class ConvertToCentimetersPipe implements PipeTransform {
     return value;
   }
 }
-
 
 @Pipe({
     name: 'convertToKilograms'

@@ -23,6 +23,7 @@ export class PokemonComponent implements OnInit {
   itemSelecionado: number = -1;
   elementosLi = document.querySelectorAll('.lista-pk li');
   cardSelected = true;
+  evolucoes: IPokeEvo[] = [] ;
   
 
   
@@ -94,9 +95,12 @@ export class PokemonComponent implements OnInit {
 
   div(){
     document.querySelectorAll('.lista-pk li').forEach((elementoLi): void => {
-      this.renderer.setStyle(elementoLi, 'width', '20%');
+      this.renderer.setStyle(elementoLi, 'width', '23%');
     });
-  }
+    document.querySelectorAll('.lista-pk').forEach((elementoLi): void => {
+      this.renderer.setStyle(elementoLi, 'left', '1rem');
+    });
+  } 
 
   getPokemonDetails(url: string) {   
     this.getPokemon.getPokemonDetails(url).subscribe((data: any) => {
@@ -121,10 +125,13 @@ export class PokemonComponent implements OnInit {
              species1: data.chain.evolves_to[0].species.name, url1: data.chain.evolves_to[0].species.url,
              species2: data.chain.evolves_to[0].evolves_to[0].species.name, url2:data.chain.evolves_to[0].evolves_to[0].species.url,
            }
+           this.evolucoes.push(newEvo);
+           console.log(this.evolucoes);
         });
       });      
       this.pokemonDetails.url = url;
     });
+    this.evolucoes = [];
   }
 
   scrollToTop() {
