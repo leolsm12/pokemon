@@ -1,0 +1,137 @@
+
+.grass {
+    background-image:radial-gradient(circle, rgba(99,188,90,0.5) 0%, rgba(67,101,63,1) 100%),
+    url('../../assets/icons/pokeball.png');
+}
+.fire {
+    background-image: radial-gradient(circle, rgba(255,157,85,0.5) 0%, rgba(210,123,58,1) 100%),
+    url('../../assets/icons/pokeball.png');
+}
+.water {
+    background-image: radial-gradient(circle, rgba(80,144,214,0.5) 0%, rgba(22,116,219,1) 100%),
+    url('../../assets/icons/pokeball.png');
+}
+.bug {
+    background-image: radial-gradient(circle, rgba(145,193,47,0.5) 0%, rgba(101,128,48,1) 100%),
+    url('../../assets/icons/pokeball.png');
+}
+.normal {
+    background-image: radial-gradient(circle,rgba(145,154,162,0.5) 0%, rgba(102,105,108,1) 100%),
+    url('../../assets/icons/pokeball.png');
+}
+.electric{
+    background-image: radial-gradient(circle, rgba(255, 216, 40, 0.5) 0%, rgba(185,156,26,1) 100%),
+    url('../../assets/icons/pokeball.png');
+}
+.poison{
+    background-image: radial-gradient(circle,rgba(181,103,206,0.5) 0%, rgba(48,14,59,1) 100%),
+    url('../../assets/icons/pokeball.png');
+}
+.ground {
+    background-image: radial-gradient(circle,rgba(217,120,69,0.5) 0%, rgba(143,53,6,1) 100%),
+    url('../../assets/icons/pokeball.png');
+}
+.fairy {
+    background-image: radial-gradient(circle,rgba(236,143,230,0.5) 0%, rgba(126,0,118,1) 100%),
+    url('../../assets/icons/pokeball.png');
+}
+.fighting {
+    background-image: radial-gradient(circle,rgba(206,65,107,0.5) 0%, rgba(107,59,73,1) 100%),
+    url('../../assets/icons/pokeball.png');
+}
+.psychic {
+    background-image: radial-gradient(circle,rgba(250,113,121,0.5) 0%, rgba(154,82,87,1) 100%),
+    url('../../assets/icons/pokeball.png');
+}
+.rock {
+    background-image: radial-gradient(circle,rgba(197,183,140,0.5) 0%, rgba(98,89,63,1) 100%),
+    url('../../assets/icons/pokeball.png');
+}
+.ghost {
+    background-image: radial-gradient(circle,rgba(82,105,173,0.5) 0%, rgba(37,49,84,1) 100%),
+    url('../../assets/icons/pokeball.png');
+}
+.ice {
+    background-image: radial-gradient(circle,rgba(115,206,192,0.5) 0%, rgba(0,186,158,1) 100%),
+    url('../../assets/icons/pokeball.png');
+}
+.dragon {
+    background-image: radial-gradient(circle,rgba(11,109,195,0.5) 0%, rgba(3,56,103,1) 100%),
+    url('../../assets/icons/pokeball.png');
+}
+.dark {
+    background-image: radial-gradient(circle,rgba(90,84,101,0.5) 0%, rgba(32,29,38,1) 100%),
+    url('../../assets/icons/pokeball.png');
+}
+.flying {
+    background-image: radial-gradient(circle,rgba(137,170,227,0.5) 0%, rgba(0,58,157,1) 100%),
+    url('../../assets/icons/pokeball.png');
+}
+.steel {
+    background-image: radial-gradient(circle,rgba(90,142,162,0.5) 0%, rgba(24,71,89,1) 100%),
+    url('../../assets/icons/pokeball.png');
+}
+
+@media (max-width: 440px) {
+    .lista-pk ul {   
+        list-style: none;
+        margin: 0px 0px 10px 2rem;
+        column-gap: 90px;
+    }
+    .lista-pk li {
+        display: inline-block;
+        width: 17%;
+        box-sizing: border-box;
+        margin: 5px 5px 5px 5px;
+        cursor: pointer;
+    }
+    
+    .card-list {
+        width: 145px;
+        height: 125px;
+    }  
+
+    .pk-img {
+        width: 70px;
+        margin: 0px 0px 0px 7px;
+    }  
+    .pk-num{
+        font-size: 10px;
+    }
+    .card-title {
+        font-size: 14px;
+    }
+    .lista-pk {
+        margin: 0px 0px 10px -10px;
+    }
+    .btn-group{
+        margin: 4px 5% 4px 5%;
+        width: 90%;
+    }
+    .previous {
+       height:25px ;
+       line-height:2px;
+    }
+    .next {
+        height: 25px;
+        line-height:2px;
+    }
+    .button-botton{
+        margin-top: -10px;
+    }
+    .poke {
+        flex-direction: column-reverse;
+    }
+    .pokeDetail {
+        width: 300px;
+        margin: 8px 0px 5px 40px
+    }
+    .detalhes-pk{
+        margin: 0px 0px 25px 1rem;
+    }
+   
+
+
+
+}
+

@@ -7,8 +7,8 @@ import { IPokemon, IPokeFoto, IPokeEvo } from '../pokemon';
 
 @Component({
   selector: 'app-pokemon',
-  templateUrl: './pokemon.component.html',
-  styleUrls: ['./pokemon.component.css']
+  templateUrl: 'pokemon.component.html',
+  styleUrls: ['pokemon.component.css', "pokemon1.component.css"]
 })
 export class PokemonComponent implements OnInit {
   
