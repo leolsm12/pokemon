@@ -20,9 +20,12 @@
     width: 40px;
 }
 a {
+    
     color:black;
     font-size: 45px;
-    margin-left: 495px;
+    margin-left: 10px;
+    position: relative;
+    left: 27rem;
 }
 
 @media (max-width: 440px) {
@@ -44,13 +47,11 @@ a {
         font-size: 15px;
     }
     a {
-        color:black;
-        font-size: 30px;
-        margin-left: 70px;
-    }
-    .icon i {
+        color: black;
+        font-size: 26px;
+        margin-left: 10px;
         position: relative;
-        left: 4rem;
+        left: 3rem;
     }
     .icon {
         width: 25px;
