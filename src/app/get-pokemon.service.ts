@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 export class GetPokemonService {
   myURL = "https://pokeapi.co/api/v2/pokemon";
   offset = 0;
+  pokemonName:any = "butterfree";
+  pokemonId: any = '';
   
   
   constructor(private http: HttpClient,) {}
@@ -35,6 +37,13 @@ export class GetPokemonService {
   getPokemons(): Observable<{results: IPokemon[]}> {
     return this.http.get<{results: IPokemon[]}>(`${this.myURL}?limit=20&offset=${this.offset}`);
   }
+  getPokemonByName(pokemonNameOrId: string | number) {
+    const url = `${this.myURL}/${pokemonNameOrId}`;
+    return this.http.get(url);
+  }
+  // getPokemonById(): Observable<{results: IPokemon}> {
+  //   return this.http.get<{results: IPokemon}>(`${this.myURL}/${this.pokemonId}`);
+  // }
   
   getPokemonDetails(url: string): Observable<IPokemon> {
     return this.http.get<IPokemon>(url);

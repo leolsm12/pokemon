@@ -2,7 +2,6 @@
 export interface IPokemon  {
     numero: number ;
     name: string;
-    tipo: string;
     tipos: string [];
     imagem: string;
     imagem_2: string;

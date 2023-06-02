@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { InformacoesComponent } from './informacoes/informacoes.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { FlexLayoutModule, BREAKPOINT } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -21,8 +22,6 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     PesquisaComponent,
     ConvertToCentimetersPipe,
     ConvertToKilogramsPipe,
-    PesquisaComponent,
-    PesquisaComponent,
     InformacoesComponent,
     CapitalizePipe,
     NavBarComponent,
@@ -34,9 +33,10 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     CommonModule,
     BrowserAnimationsModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FlexLayoutModule
   ],
-  providers: [],
+  providers: [{ provide: BREAKPOINT, useValue: {} }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
