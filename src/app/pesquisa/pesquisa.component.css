@@ -15,10 +15,19 @@
 #pesquisar{
     border-radius: 0px 30px 30px 0px;
 }
-.detalhes-pk{
-    display: flex;
-    align-items: center;
+svg{
+    width: 3%;
+}
+.alert{
+    position: relative;
     width: 50%;
+    left: 25%;
+    top: 8rem;
+}
+.detalhes-pk{
+    position: relative;
+    left: 35%;
+    width: 450px;
 }
 .detalhes-pk > img{
     width: 200px;

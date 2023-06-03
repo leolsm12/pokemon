@@ -2,6 +2,7 @@
 export interface IPokemon  {
     numero: number ;
     name: string;
+    tipo:string;
     tipos: string [];
     imagem: string;
     imagem_2: string;
@@ -14,6 +15,9 @@ export interface IPokemon  {
     url: string;
     
 }
+export interface IPokemonResponse {
+    results: IPokemon[] | string[];
+  }
 export interface Evolucao {
     nome: string ;
     numero: number;

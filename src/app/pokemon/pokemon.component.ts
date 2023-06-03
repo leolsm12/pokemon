@@ -35,7 +35,7 @@ export class PokemonComponent implements OnInit {
     ) { }
   
   ngOnInit() {
-    this.getPokemon.getPokemons().subscribe(data => {
+    this.getPokemon.getPokemons(this.getPokemon.offset, this.getPokemon.limit).subscribe(data => {
       this.pokemons = data?.results;
     this.loadImage();     
     });    
@@ -62,7 +62,7 @@ export class PokemonComponent implements OnInit {
 
   loadNext() {  
     this.getPokemon.loadNext();
-    this.getPokemon.getPokemons().subscribe((data) => {
+    this.getPokemon.getPokemons(this.getPokemon.offset, this.getPokemon.limit).subscribe((data) => {
       this.pokemons = data?.results;
       this.loadImage();
       this.poke = false;
@@ -74,7 +74,7 @@ export class PokemonComponent implements OnInit {
 
   loadPrevious() {
     this.getPokemon.loadPrevious();
-    this.getPokemon.getPokemons().subscribe((data) => {
+    this.getPokemon.getPokemons(this.getPokemon.offset, this.getPokemon.limit).subscribe((data) => {
       this.pokemons = data?.results;
       this.loadImage(); 
       this.poke = false 

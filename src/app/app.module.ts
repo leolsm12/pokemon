@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { InformacoesComponent } from './informacoes/informacoes.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { FlexLayoutModule, BREAKPOINT } from '@angular/flex-layout';
+
 
 
 @NgModule({
@@ -34,9 +34,9 @@ import { FlexLayoutModule, BREAKPOINT } from '@angular/flex-layout';
     BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
-    FlexLayoutModule
+    
   ],
-  providers: [{ provide: BREAKPOINT, useValue: {} }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
