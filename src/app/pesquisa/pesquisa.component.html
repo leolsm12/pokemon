@@ -16,7 +16,7 @@
 <div *ngIf="poke" class= "detalhes-pk">
     <div class=" card pokeDetail {{ pokemon.tipo }} "  >
       <button (click)="poke = false" type="button" class="btn-close" aria-label="Close"></button>
-      <img [src]="pokemon.imagem" alt=" {{pokemon.name}}">
+      <img class="image-detail"[src]="pokemon.imagem" alt=" {{pokemon.name}}">
       <div class="card-body tab-content">
         <div class="btn-group button-detail-card">
           <a class="btn  info" [class.active]="activeTab === 1" (click)="changeTab(1)" >Info</a>

@@ -126,9 +126,17 @@ export class PokemonComponent implements OnInit {
       this.getPokemon.getPokemonDetails(evoUrl).subscribe((data: any) => {
         const url2 = data.evolution_chain.url;
         this.getPokemon.getPokemonDetails(url2).subscribe((data: any) => {
-          this.evolucoes.push(data.chain.species.name)    
-          this.evolucoes.push(data.chain.evolves_to[0].species.name) 
-          this.evolucoes.push(data.chain.evolves_to[0].evolves_to[0].species.name) 
+          if (data.chain && data.chain.species && data.chain.species.name) {
+            this.evolucoes.push(data.chain.species.name);
+          }
+          
+          if (data.chain && data.chain.evolves_to && data.chain.evolves_to.length > 0 && data.chain.evolves_to[0].species && data.chain.evolves_to[0].species.name) {
+            this.evolucoes.push(data.chain.evolves_to[0].species.name);
+          }
+          
+          if (data.chain && data.chain.evolves_to && data.chain.evolves_to.length > 0 && data.chain.evolves_to[0].evolves_to && data.chain.evolves_to[0].evolves_to.length > 0 && data.chain.evolves_to[0].evolves_to[0].species && data.chain.evolves_to[0].evolves_to[0].species.name) {
+            this.evolucoes.push(data.chain.evolves_to[0].evolves_to[0].species.name);
+          }
            if(this.evolucoes.includes(this.pokemonDetails.name)){
              this.evolucoes = this.evolucoes.filter((pokemon:any)=> pokemon !== this.pokemonDetails.name)
            }

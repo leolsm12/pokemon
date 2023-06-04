@@ -24,13 +24,169 @@ svg{
     left: 25%;
     top: 8rem;
 }
-.pokeDetail{
-    left:45%;
-}
-@media (max-width: 440px) {
-    h1{
-        font-size: 4rem;
-    }
 
 
+
+
+
+
+
+
+.btn-close{
+    position: relative;
+    left: 10px;
+    top: 10px;
 }
+.btn-close:hover {
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, 1);
+    transform: translateY(5px);
+}
+
+.pokeDetail {
+    flex: 1;
+    overflow: hidden;
+    background-size: 100%;
+    width: 70%;
+    height: auto;
+    border: 3px solid black;
+    border-radius: 25px;
+    box-shadow: 15px 20px 20px rgba(0, 0, 0, 1);
+    background-position: top;
+    background-repeat: no-repeat;
+    left: 15%;
+    margin-top: 25px;
+}
+.image-detail {
+    position: relative;
+    left: 2.5%;
+    bottom: 25px;
+    width: 45%;
+}
+.button-detail-card{
+    overflow:hidden;
+    position: absolute;
+    width: 102%;
+    height: 2.5rem; 
+    top: 0;
+    left: -2px;
+}
+
+.tab-content{
+    overflow: hidden;
+    position: absolute;
+    background-color: #afafaf;
+    right: 0px;
+    top: 0;
+    height: 100%;
+    border-radius: 1.5rem 1.5rem 0px 1.5rem;
+    box-shadow: -11px 0px 10px rgba(0, 0, 0, 0.5);
+    width: 50%;
+ 
+}
+.detail-card {
+   position: relative;
+   top: 40px;
+
+}
+.btn.active {
+   background-color:#afafaf;
+   transform: translateY(-1px) translateX(-1px);
+   box-shadow:5px 5px 0px rgba(0, 0, 0, 0.5);
+   border: none;
+}
+.btn.evo.active {
+    transform: translateY(-1px) translateX(-1px);
+    box-shadow:-5px 3px 5px rgba(0, 0, 0, 0.5);
+
+}
+
+.nav-tabs {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: -16px;
+    margin-left: -22px;
+    margin-top: -20px;
+    cursor: pointer;
+   
+}
+.stat-number{
+    margin-left: -158px;
+    margin-top: 8px;
+}
+.stat-name{
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.stat-comp{
+    margin-bottom: -14px;
+}
+#porcentagem-composta{
+    margin-top: 11px;
+}
+.progress {
+    height: 12px;
+}
+.progress-bar {
+    background-color: black;
+}
+
+.nav-link{
+    margin-left: 5px;
+    width: 100%;
+}
+
+.nav-item {
+    width: 33%;
+}
+
+.stats {
+    width: 6rem;
+    text-align: center;
+    margin-left: 33px;
+    color : black;
+    font-weight: 600;
+    background-color: rgb(199, 199, 199); 
+}
+.stats:hover{
+    transform: translateY(-1px) translateX(-1px);
+    box-shadow:5px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.evo {
+    width: 7rem;
+    text-align: center;
+    margin-left: 66px;
+    color : black;
+    font-weight: 600;
+    background-color: rgb(199, 199, 199); 
+}
+.evo:hover{
+    transform: translateY(-1px) translateX(-1px);
+    box-shadow:-5px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.info {
+    width: 6rem;
+    text-align: center;
+    margin-left: 0px;
+    color : black;
+    font-weight: 600;
+    background-color: rgb(199, 199, 199); 
+}
+.info:hover{
+    transform: translateY(-1px) translateX(-1px);
+    box-shadow:5px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.name{
+    text-align: center;
+    border: 1px solid black;
+}
+
+
+
+
+
