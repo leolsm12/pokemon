@@ -1,7 +1,88 @@
 
 @media (max-width: 440px) {
-    h1{
-        font-size: 4rem;
+    .input-group {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        width: 90%;
+        height: 3.1rem;
+        left: 5%;
+        top: 140px;
+        border-radius: 35px;  
+    }
+    svg{
+        width: 15%;
+    }
+    .alert{
+        position: relative;
+        width: 95%;
+        left: 3%;
+        top: 8.2rem;
+    }
+   
+    .image-detail {
+        position: relative;
+        bottom: 25px;
+        width: 100%;  
+    }
+    .pokeDetail {
+        overflow: hidden;
+        background-size: 100%;
+        width: 90%;
+        height: auto;
+        border: 3px solid black;
+        border-radius: 25px;
+        box-shadow: 15px 20px 20px rgba(0, 0, 0, 1);
+        background-position: top;
+        background-repeat: no-repeat;
+        margin-top: 10px;
+        left: 5%;
+    }
+    .button-detail-card{
+        overflow:hidden;
+        position: absolute;
+        width: 102%;
+        height: 2.5rem; 
+        top: 0;
+        left: -2px;
+    }
+    
+    .tab-content{
+        overflow: hidden;
+        position: relative;
+        background-color: #afafaf;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        height: auto;
+        border-radius: 1.5rem 1.5rem 0px 0px;
+        box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.5)
+    }
+    .detail-card {
+       position: relative;
+       top: 40px;
+       margin-bottom: 50px;
+    
+    }
+    .btn.active {
+       background-color:#afafaf;
+       transform: translateY(-1px) translateX(-1px);
+       box-shadow:5px 5px 0px rgba(0, 0, 0, 0.5);
+       border: none;
+    }
+    .btn.evo.active {
+        transform: translateY(-1px) translateX(-1px);
+        box-shadow:-5px 3px 5px rgba(0, 0, 0, 0.5);
+    
+    }
+    .evo {
+        width: 7rem;
+        text-align: center;
+        margin-left: 66px;
+        color : black;
+        font-weight: 600;
+        background-color: rgb(199, 199, 199); 
     }
 
 

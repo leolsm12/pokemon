@@ -9,8 +9,8 @@ import { IPokeEvo, IPokemon } from '../pokemon';
   templateUrl: './pesquisa.component.html', 
   styleUrls: ['./pesquisa.component.css',
                '../pokemon/background.pokemon.css',
-               './responsive.pesquisa.css',
-               '../pokemon/cardDetail.css' 
+               './responsive.pesquisa.css'
+                
             ]
 })
 export class PesquisaComponent implements OnInit {
