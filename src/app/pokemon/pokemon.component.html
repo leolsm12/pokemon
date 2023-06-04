@@ -14,7 +14,7 @@
                 <div class="card-body">
                   <img class="pk-img" [src]="pokemon.foto ? pokemon.foto: pokemon.fotoR " alt="{{ pokemon.name }}" >
                   <h5 class="pk-num">#{{ pokemon.number }}</h5>
-                  <h3 class="card-title"> {{ pokemon.nome.replace('-', ' ') | capitalize }} </h3>
+                  <h3 class="card-title"> {{ pokemon.nome?.replaceAll('-', ' ') | capitalize }} </h3>
                 </div>
               </div>
           </li>
@@ -31,7 +31,7 @@
       </div>
       <div class="detail-card">
         <div *ngIf="activeTab === 1">
-            <h2 class="name  {{ pokemonDetails.tipos[0] }} " >{{ pokemonDetails.name | capitalize  }}</h2>
+            <h2 class="name  {{ pokemonDetails.tipos[0] }} " >{{ pokemonDetails.name?.replaceAll('-',' ') | capitalize  }}</h2>
             <h2 class="number">#{{ pokemonDetails.numero}}</h2>
             <h2>{{ pokemonDetails.evolucoes}}</h2>
             <p class="tipo">{{ pokemonDetails.tipos[0] }} {{ pokemonDetails.tipos[1] }}</p>
@@ -108,10 +108,15 @@
           </div>
         </div>
         <div *ngIf="activeTab === 3">
-          <div *ngFor="let evo of evolucoes">
-            <p>{{ evo.species}}</p>
-            <p>{{ evo.species1}}</p>
-            <p>{{ evo.species2}}</p>
+          <div class="evos"> 
+            <ul>
+              <li *ngFor="let pokemon of evo">
+                <div (click)="getPokemonDetails(pokemon.url); changeTab(1)">
+                  <p class="pokeDetailName">{{pokemon.name}}</p>
+                  <img class="pokeDetailImage"[src]="pokemon.imagem ? pokemon.imagem: pokemon.imagem_2 " alt="{{pokemon.name}}">
+                </div>
+                </li>
+            </ul>
           </div>
         </div>
       </div>

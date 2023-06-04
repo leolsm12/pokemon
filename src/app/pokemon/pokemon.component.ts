@@ -8,7 +8,7 @@ import { IPokemon, IPokeFoto, IPokeEvo } from '../pokemon';
 @Component({
   selector: 'app-pokemon',
   templateUrl: 'pokemon.component.html',
-  styleUrls: ['pokemon.component.css', 'background.pokemon.css', 'responsive.pokemon.css']
+  styleUrls: ['pokemon.component.css', './cardDetail.css', 'responsive.pokemon.css', './background.pokemon.css']
 })
 export class PokemonComponent implements OnInit {
   
@@ -21,9 +21,9 @@ export class PokemonComponent implements OnInit {
   activeTab = 1;
   valor: number = 75;
   itemSelecionado: number = -1;
-  // elementosLi = document.querySelectorAll('.lista-pk li');
   cardSelected = true;
-  evolucoes: IPokeEvo[] = [] ;
+  evolucoes: any = [] ;
+  evo:any[] = [];
   
 
   
@@ -126,20 +126,36 @@ export class PokemonComponent implements OnInit {
       this.getPokemon.getPokemonDetails(evoUrl).subscribe((data: any) => {
         const url2 = data.evolution_chain.url;
         this.getPokemon.getPokemonDetails(url2).subscribe((data: any) => {
-          console.log(data);
-           const newEvo: IPokeEvo = {
-             species: data.chain.species.name, url:data.chain.species.url, 
-             species1: data.chain.evolves_to[0].species.name, url1: data.chain.evolves_to[0].species.url,
-             species2: data.chain.evolves_to[0].evolves_to[0].species.name, url2:data.chain.evolves_to[0].evolves_to[0].species.url,
+          this.evolucoes.push(data.chain.species.name)    
+          this.evolucoes.push(data.chain.evolves_to[0].species.name) 
+          this.evolucoes.push(data.chain.evolves_to[0].evolves_to[0].species.name) 
+           if(this.evolucoes.includes(this.pokemonDetails.name)){
+             this.evolucoes = this.evolucoes.filter((pokemon:any)=> pokemon !== this.pokemonDetails.name)
            }
-           this.evolucoes.push(newEvo);
-           console.log(this.evolucoes);
+           console.log(this.evolucoes)
+           for(const evo of this.evolucoes){
+           this.getPokemon.getPokemonByName(evo).subscribe((data: any) => {
+            const newEvo:any = {};
+            newEvo.name = data.name.replace('-', ' ');
+            newEvo.imagem = data.sprites.other['official-artwork'].front_default;
+            newEvo.imagem_2 = data.sprites.other['official-artwork'].front_female || data.sprites.front_default; 
+            newEvo.url = `https://pokeapi.co/api/v2/pokemon/${data.name}`;
+            console.log(newEvo);
+            this.evo.push(newEvo);
+            
+           });
+          }
+          this.evo = [];
+           
+           
         });
       });      
-      this.pokemonDetails.url = url;
+      this.pokemonDetails.url = data.url;
     });
     this.evolucoes = [];
+    
   }
+
 
   scrollToTop() {
     const top = 0;

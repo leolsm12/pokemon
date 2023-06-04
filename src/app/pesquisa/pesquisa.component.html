@@ -13,7 +13,7 @@
   </div>
 </div>
 
-<div *ngIf="poke && telaPequena " class= "detalhes-pk">
+<div *ngIf="poke" class= "detalhes-pk">
     <div class=" card pokeDetail {{ pokemon.tipo }} "  >
       <button (click)="poke = false" type="button" class="btn-close" aria-label="Close"></button>
       <img [src]="pokemon.imagem" alt=" {{pokemon.name}}">
@@ -25,7 +25,7 @@
         </div>
         <div class="detail-card">
           <div *ngIf="activeTab === 1">
-              <h2 class="name  {{ pokemon.tipos[0] }} " >{{ pokemon.name.replaceAll('-', ' ') | capitalize  }}</h2>
+              <h2 class="name  {{ pokemon.tipo }} " >{{ pokemon.name?.replaceAll('-', ' ') | capitalize  }}</h2>
               <h2 class="number">#{{ pokemon.numero}}</h2>
               <h2>{{ pokemon.evolucoes}}</h2>
               <p class="tipo">{{ pokemon.tipos[0] }} {{ pokemon.tipos[1] }}</p>
@@ -80,7 +80,7 @@
               <div class="col stat-name stat-comp">
                 <p> {{ pokemon.stats[4].stat.name.replace('-', ' ').split(' ')[0] }}
                   <br>
-                   {{ pokemon.stats[4].stat.name.replace('-', ' ').split(' ')[1] }}</p>
+                   {{ pokemon.stats[4].stat.name.replace('-', ' ').split(' ')[1] }}</p> 
               </div>
               <div class="col stat-number">
                 <div id="porcentagem-composta" class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
@@ -101,19 +101,18 @@
               </div>
             </div>
           </div>
-          <div *ngIf="activeTab === 3">
-           <div *ngFor="let evo of this.pokemon.evolucoes"> 
-               <p>{{ evo.species}}</p>
-              <p>{{ evo.species1}}</p>
-              <p>{{ evo.species2}}</p> 
-            </div>
+          <div *ngIf="activeTab === 3" >
+            <ul>
+              <li *ngFor="let pokemon of evo">
+                <div (click)="getPokemon(pokemon.url); changeTab(1)" class="evos {{ pokemon.tipo }}">
+                  <img class="pokeDetailImage"[src]="pokemon.imagem ? pokemon.imagem: pokemon.imagem_2 " alt="{{pokemon.name}}">
+                  <p class="pokeDetailName">{{pokemon.name}}</p>
+                </div>
+                </li>
+            </ul>
           </div>
         </div>
       </div>
-    </div>
-    <div *ngIf="poke">
-      <h2><p>tela do pc </p></h2>
-
     </div>
 
 

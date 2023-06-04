@@ -1,0 +1,242 @@
+.lista-pk{
+    position: relative;
+    left: 5rem;
+    flex: 10;
+    border-radius: 25px;
+    margin-right: 125px;  
+}
+
+.lista-pk ul {   
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 5px 0px 10px 5rem;
+}
+
+.lista-pk li {
+  display: inline-block;
+  width: 17%;
+  box-sizing: border-box;
+  margin: 5px 5px 5px 5px;
+  cursor: pointer;
+}
+
+.card-list {
+    width: 180px;
+    height: 210px;
+    overflow:hidden;
+    margin: 0px -10px -11px -11px; 
+    border-radius:25px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 3px solid black;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 1);
+}
+
+.card-list:hover {
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, 1);
+    transform: translateY(-5px);
+}
+.selecionado {
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, 1);
+    transform: translateY(-5px);
+}
+
+.card-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin: -10px 0px 7px 0px;
+}
+
+.pokeDetail {
+    flex:1px;
+    overflow:hidden;
+    background-size: 100%;
+    width: 300px; 
+    height: 700px;
+    border: 3px solid black;
+    border-radius:25px;
+    box-shadow: 15px 20px 20px  rgba(0, 0, 0, 1);
+    background-position: top;
+    background-repeat: no-repeat;
+    right: 7rem;
+    margin-top: 10px;
+}
+.button-detail-card{
+    overflow:hidden;
+    position: absolute;
+    width: 102%;
+    height: 2.5rem; 
+    top: 0;
+    left: -2px;
+}
+
+.tab-content{
+    overflow: hidden;
+    position: absolute;
+    background-color: #afafaf;
+    width: 100%;
+    left: 0px;
+    bottom: 0;
+    height: 25rem;
+    border-radius: 1.5rem 1.5rem 0px 0px;
+    box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.5);
+ 
+}
+.detail-card {
+   position: relative;
+   top: 40px;
+
+}
+.btn.active {
+   background-color:#afafaf;
+   transform: translateY(-1px) translateX(-1px);
+   box-shadow:5px 5px 0px rgba(0, 0, 0, 0.5);
+   border: none;
+}
+.btn.evo.active {
+    transform: translateY(-1px) translateX(-1px);
+    box-shadow:-5px 3px 5px rgba(0, 0, 0, 0.5);
+
+}
+
+.pk-num{
+    text-align: center;
+}
+
+.button-top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4px;
+    margin-top: 4px;
+    margin-left: 10%;
+    width: 80%;
+   
+}
+
+.button-botton{
+    left: 10%;
+    width: 80%;
+}
+
+.previous {
+    background-color: rgb(226, 66, 66);
+    border: 2px solid black; 
+}
+.previous:hover{
+    transform: translateY(-1px) translateX(-1px);
+    box-shadow:5px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.next {
+    background-color: antiquewhite;
+    border: 2px solid black;
+}
+.next:hover{
+    transform: translateY(-1px) translateX(-1px);
+    box-shadow:5px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.pk-img {
+    width: 140px;
+}
+
+.poke{
+    display:flex;
+}
+
+.nav-tabs {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: -16px;
+    margin-left: -22px;
+    margin-top: -20px;
+    cursor: pointer;
+   
+}
+.stat-number{
+    margin-left: -158px;
+    margin-top: 8px;
+}
+.stat-name{
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.stat-comp{
+    margin-bottom: -14px;
+}
+#porcentagem-composta{
+    margin-top: 11px;
+}
+.progress {
+    height: 12px;
+}
+.progress-bar {
+    background-color: black;
+}
+
+.nav-link{
+    margin-left: 5px;
+    width: 100%;
+}
+
+.nav-item {
+    width: 33%;
+}
+
+.stats {
+    width: 6rem;
+    text-align: center;
+    margin-left: 33px;
+    color : black;
+    font-weight: 600;
+    background-color: rgb(199, 199, 199); 
+}
+.stats:hover{
+    transform: translateY(-1px) translateX(-1px);
+    box-shadow:5px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.evo {
+    width: 7rem;
+    text-align: center;
+    margin-left: 66px;
+    color : black;
+    font-weight: 600;
+    background-color: rgb(199, 199, 199); 
+}
+.evo:hover{
+    transform: translateY(-1px) translateX(-1px);
+    box-shadow:-5px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.info {
+    width: 6rem;
+    text-align: center;
+    margin-left: 0px;
+    color : black;
+    font-weight: 600;
+    background-color: rgb(199, 199, 199); 
+}
+.info:hover{
+    transform: translateY(-1px) translateX(-1px);
+    box-shadow:5px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.name{
+    text-align: center;
+    border: 1px solid black;
+}
+

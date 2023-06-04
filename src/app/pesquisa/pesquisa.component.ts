@@ -8,83 +8,58 @@ import { IPokeEvo, IPokemon } from '../pokemon';
   selector: 'app-pesquisa',
   templateUrl: './pesquisa.component.html', 
   styleUrls: ['./pesquisa.component.css',
-               '../pokemon/background.pokemon.css' 
+               '../pokemon/background.pokemon.css',
+               './responsive.pesquisa.css',
+               '../pokemon/cardDetail.css' 
             ]
 })
 export class PesquisaComponent implements OnInit {
   pokemon:any = {};
   pesquisa: any = '';
+  evolucoes: any = [];
+  evo:any[] = [];
   activeTab = 1;
   poke = false;
-  tamanhoDaTela: number;
   alerta = false;
   offSetNames = '';
   pokemonsName: any = [] ;
   MyUrl = "https://pokeapi.co/api/v2/pokemon/";
-  telaPequena = false;
-  telaGrande = false;
-   
- 
   
 
   constructor( 
     private GetPokemon: GetPokemonService 
    
-    ) {
-      this.tamanhoDaTela = window.innerWidth;
-
-  }
+    ){}
 
   ngOnInit() {
   this.getPokemons();
-  console.log(this.telaGrande)
-  console.log(this.telaPequena)
   }
-  
-  @HostListener('window:resize', ['$event'])
-  onWindowResize(event: any) {
-    this.tamanhoDaTela = window.innerWidth;
-  }
-  isTelaPequena(): boolean {
-    return this.tamanhoDaTela < 440; 
-  }
-  celular(){
-    if(this.isTelaPequena() === true){
-      this.telaPequena = true
-    }else{
-      this.telaGrande = true
-    }
-  }
-  
-
 
   getInput(){
     this.pesquisa = document.querySelector<HTMLInputElement>('input')?.value;
     this.pesquisa = this.pesquisa.toLowerCase().replace(/\s/g, '-');
-    
     if((this.pesquisa > 0 && this.pesquisa <= 1279 ) || this.pokemonsName.includes(this.pesquisa)){
-    this.getPokemon();
+    this.getPokemon(this.pesquisa);
     this.poke = true;
     this.alerta = false;
     this.pesquisa = '';
     } else{
       this.alerta = true;
-    }
+    }   
   }
 
   changeTab(tabNumber: number) {
     this.activeTab = tabNumber;
   }
   
-  getPokemon(){
-    this.GetPokemon.getPokemonByName(this.pesquisa).subscribe((data: any) => {
+  getPokemon(pesquisa:string){
+    this.GetPokemon.getPokemonByName(pesquisa).subscribe((data: any) => {
       this.pokemon.numero = data.id;
       this.pokemon.name = data.name.replace('-', ' ');
       this.pokemon.tipo = data.types[0].type.name;
       this.pokemon.tipos = data.types.map((type: any) => type.type.name);
       this.pokemon.imagem = data.sprites.other['official-artwork'].front_default;
       this.pokemon.imagem_2 = data.sprites.other['official-artwork'].front_female || data.sprites.front_default;
-      this.pokemon.evolucoes = [];
       this.pokemon.peso = data.weight;
       this.pokemon.altura = data.height;
       this.pokemon.stats = [];
@@ -93,20 +68,35 @@ export class PesquisaComponent implements OnInit {
       this.GetPokemon.getPokemonDetails(evoUrl).subscribe((data: any) => {
         const url2 = data.evolution_chain.url;
         this.GetPokemon.getPokemonDetails(url2).subscribe((data: any) => {
-          console.log(data);
-           const newEvo: IPokeEvo = {
-             species: data.chain.species.name, url:data.chain.species.url, 
-             species1: data.chain.evolves_to[0].species.name, url1: data.chain.evolves_to[0].species.url,
-             species2: data.chain.evolves_to[0].evolves_to[0].species.name, url2:data.chain.evolves_to[0].evolves_to[0].species.url,
+         
+          this.evolucoes.push(data.chain.species.name)    
+          this.evolucoes.push(data.chain.evolves_to[0].species.name) 
+          this.evolucoes.push(data.chain.evolves_to[0].evolves_to[0].species.name) 
+           if(this.evolucoes.includes(this.pokemon.name)){
+             this.evolucoes = this.evolucoes.filter((pokemon:any)=> pokemon !== this.pokemon.name)
            }
-           this.pokemon.evolucoes.push(newEvo);
-           console.log(this.pokemon.evolucoes);
+           console.log(this.evolucoes)
+           for(const evo of this.evolucoes){
+           this.GetPokemon.getPokemonByName(evo).subscribe((data: any) => {
+            const newEvo:any = {};
+            newEvo.name = data.name.replace('-', ' ');
+            newEvo.imagem = data.sprites.other['official-artwork'].front_default;
+            newEvo.imagem_2 = data.sprites.other['official-artwork'].front_female || data.sprites.front_default; 
+            newEvo.url = data.name;
+            newEvo.tipo = data.types[0].type.name;
+            console.log(newEvo);
+            this.evo.push(newEvo);
+           });
+          }
+          this.evo = [];
+           
+           
         });
       });      
       this.pokemon.url = data.url;
     });
-    this.pokemon.evolucoes = [];
-    console.log(this.pokemon);
+    this.evolucoes = [];
+    
   }
 
   getPokemons(){

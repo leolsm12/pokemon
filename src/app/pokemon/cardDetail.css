@@ -1,0 +1,32 @@
+ ul {
+    list-style: none;
+}
+.pokeDetailImage {
+    width: 100px;
+    position: relative;
+    left: 1rem;
+}
+.pokeDetailName{
+    text-align: center;
+    font-weight: bold;
+}
+.evos {
+    width: 155px;
+    height: 155px;
+    overflow:hidden; 
+    border-radius:25px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 3px solid black;
+    margin-bottom: 15px;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 1);
+}
+.evos:hover{
+    transform: translateY(-1px) translateX(-1px);
+    box-shadow: 5px 3px 5px rgba(0, 0, 0, 0.5);
+}

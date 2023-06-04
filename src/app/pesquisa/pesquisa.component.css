@@ -24,18 +24,8 @@ svg{
     left: 25%;
     top: 8rem;
 }
-.detalhes-pk{
-    position: relative;
-    left: 35%;
-    width: 450px;
-}
-.detalhes-pk > img{
-    width: 200px;
-    height: auto;
-    margin-right: 10px;
-}
-.detail-card{
-    flex:1;
+.pokeDetail{
+    left:45%;
 }
 @media (max-width: 440px) {
     h1{
