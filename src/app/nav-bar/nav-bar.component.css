@@ -1,5 +1,6 @@
 
 .header {
+    overflow: hidden;
     display: flex;
     align-items: center;
     margin-top: 30px;
@@ -20,12 +21,12 @@
     width: 40px;
 }
 a {
-    
+    position: relative;
     color:black;
     font-size: 45px;
     margin-left: 10px;
-    position: relative;
-    left: 27rem;
+
+    left: 10rem;
 }
 
 @media (max-width: 440px) {
