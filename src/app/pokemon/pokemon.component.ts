@@ -154,6 +154,7 @@ export class PokemonComponent implements OnInit {
            });
           }
           this.evo = [];
+          console.log(this.evo);
            
            
         });

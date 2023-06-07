@@ -108,12 +108,12 @@
           </div>
         </div>
         <div *ngIf="activeTab === 3">
-          <div class="evos"> 
+          <div > 
             <ul>
-              <li *ngFor="let pokemon of evo">
-                <div (click)="getPokemonDetails(pokemon.url); changeTab(1)">
+              <li *ngFor="let pokemon of evo" >
+                <div (click)="getPokemonDetails(pokemon.url); changeTab(1)" class="evos {{ pokemon.tipo }}" >
                   <p class="pokeDetailName">{{pokemon.name}}</p>
-                  <img class="pokeDetailImage"[src]="pokemon.imagem ? pokemon.imagem: pokemon.imagem_2 " alt="{{pokemon.name}}">
+                  <img class="pokeDetailImage" [src]="pokemon.imagem ? pokemon.imagem: pokemon.imagem_2 " alt="{{pokemon.name}}">
                 </div>
                 </li>
             </ul>
