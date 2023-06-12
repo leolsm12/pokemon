@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { InformacoesComponent } from './informacoes/informacoes.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { CardDetailComponent } from './card-detail/card-detail.component';
 
 
 
@@ -25,6 +26,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     InformacoesComponent,
     CapitalizePipe,
     NavBarComponent,
+    CardDetailComponent,
 
   ],
   imports: [

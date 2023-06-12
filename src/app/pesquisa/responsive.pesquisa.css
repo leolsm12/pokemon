@@ -11,6 +11,11 @@
         top: 140px;
         border-radius: 35px;  
     }
+    .sug-div {
+        width: 75%;
+        left: 5%;
+        top: 135px;
+    }
     svg{
         width: 15%;
     }
@@ -24,7 +29,8 @@
     .image-detail {
         position: relative;
         bottom: 25px;
-        width: 100%;  
+        width: 100%; 
+        top:0; 
     }
     .pokeDetail {
         overflow: hidden;
@@ -83,6 +89,11 @@
         color : black;
         font-weight: 600;
         background-color: rgb(199, 199, 199); 
+    }
+    .btn-close{
+        overflow: hidden;
+        left: 10px;
+        top: 10px;
     }
 
 

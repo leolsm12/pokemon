@@ -1,7 +1,16 @@
 <div *ngIf="poke===false" class="input-group mb-3">
-    <input (keydown.enter)="getInput()" id="input" type="text" class="form-control" placeholder="Pokemon" aria-label="Recipient's username" aria-describedby="button-addon2">
+    <input [(ngModel)]="searchTerm" (input)="filterPokemonNames(searchTerm)" (keydown.enter)="getInput()" id="input" type="text" class="form-control" placeholder="Pokemon" aria-label="Recipient's username" aria-describedby="button-addon2">
     <button (click)="getInput()" id="pesquisar" class="btn btn-primary" type="button" >Button</button>
 </div>
+<div class="sug-div" *ngIf="searchTerm"  >
+  <ul class="sug-list" *ngIf="listaPk" >
+    <li class="sug-name"(click)="selectPokemonName(name);alerta=false" *ngFor="let name of suggestedPokemonNames">
+      {{name.replaceAll('-', ' ') | capitalize }}
+    </li>
+  
+  </ul>
+</div>
+
 
 
 <div *ngIf="alerta" class="alert alert-primary d-flex align-items-center" role="alert">
@@ -15,7 +24,7 @@
 
 <div *ngIf="poke" class= "detalhes-pk">
     <div class=" card pokeDetail {{ pokemon.tipo }} "  >
-      <button (click)="poke = false" type="button" class="btn-close" aria-label="Close"></button>
+      <button (click)="poke = false; listaPk = true; searchTerm=''; pesquisa= '' " type="button" class="btn-close" aria-label="Close"></button>
       <img class="image-detail"[src]="pokemon.imagem" alt=" {{pokemon.name}}">
       <div class="card-body tab-content">
         <div class="btn-group button-detail-card">
@@ -114,5 +123,6 @@
         </div>
       </div>
     </div>
+    
 
 

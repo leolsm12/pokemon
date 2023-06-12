@@ -28,6 +28,14 @@ a {
 
     left: 10rem;
 }
+.link {
+    position: relative;
+    left: 15%;
+}
+.git{
+    position: relative;
+    left:0;
+}
 
 @media (max-width: 440px) {
     .header {
@@ -68,6 +76,14 @@ a {
     .pesquisa {    
         position: relative;
         right: 0.5rem;
+    }
+    .link {
+        position: relative;
+        left: 0;
+    }
+    .git{
+        position: relative;
+        left: -2rem;
     }
     
 }

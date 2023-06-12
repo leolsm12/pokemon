@@ -1,6 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { GetPokemonService } from '../get-pokemon.service';
 import { IPokemon, IPokeFoto, IPokeEvo } from '../pokemon';
+import { CardDetailComponent } from '../card-detail/card-detail.component';
 
 
 
@@ -31,7 +32,8 @@ export class PokemonComponent implements OnInit {
 
   constructor(
     public getPokemon: GetPokemonService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    
     ) { }
   
   ngOnInit() {
@@ -148,6 +150,7 @@ export class PokemonComponent implements OnInit {
             newEvo.imagem = data.sprites.other['official-artwork'].front_default;
             newEvo.imagem_2 = data.sprites.other['official-artwork'].front_female || data.sprites.front_default; 
             newEvo.url = `https://pokeapi.co/api/v2/pokemon/${data.name}`;
+            newEvo.tipo = data.types[0].type.name;
             console.log(newEvo);
             this.evo.push(newEvo);
             

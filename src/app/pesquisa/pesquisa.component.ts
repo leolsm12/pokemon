@@ -23,7 +23,10 @@ export class PesquisaComponent implements OnInit {
   alerta = false;
   offSetNames = '';
   pokemonsName: any = [] ;
+  suggestedPokemonNames: string[] = this.pokemonsName;
+  searchTerm: string = '';
   MyUrl = "https://pokeapi.co/api/v2/pokemon/";
+  listaPk = true
   
 
   constructor( 
@@ -34,6 +37,11 @@ export class PesquisaComponent implements OnInit {
   ngOnInit() {
   this.getPokemons();
   }
+  filterPokemonNames(searchTerm: string) {
+    this.suggestedPokemonNames = this.pokemonsName.filter((name: any ) =>
+      name.toLowerCase().startsWith(searchTerm.toLowerCase())
+    );
+  }
 
   getInput(){
     this.pesquisa = document.querySelector<HTMLInputElement>('input')?.value;
@@ -42,10 +50,20 @@ export class PesquisaComponent implements OnInit {
     this.getPokemon(this.pesquisa);
     this.poke = true;
     this.alerta = false;
+    this.listaPk = false;
     this.pesquisa = '';
+
     } else{
       this.alerta = true;
     }   
+  }
+  selectPokemonName(name: string) {
+    console.log(name)
+    this.getPokemon(name);
+    this.poke = true;
+    this.listaPk = false;
+    
+
   }
 
   changeTab(tabNumber: number) {
@@ -112,7 +130,9 @@ export class PesquisaComponent implements OnInit {
     this.pokemonsName = data?.results.map(pokemon => pokemon.name);
     
   });
+  
 }
+
    
 
 }
