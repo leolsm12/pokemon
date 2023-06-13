@@ -102,7 +102,7 @@ export class PokemonComponent implements OnInit {
       this.renderer.setStyle(elementoLi, 'width', '23%');
     });
     document.querySelectorAll('.lista-pk').forEach((elementoLi): void => {
-      this.renderer.setStyle(elementoLi, 'left', '1rem');
+      this.renderer.setStyle(elementoLi, 'left', '0');
     });
   }
   divOff(){

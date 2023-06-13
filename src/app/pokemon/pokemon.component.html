@@ -31,12 +31,22 @@
       </div>
       <div class="detail-card">
         <div *ngIf="activeTab === 1">
-            <h2 class="name  {{ pokemonDetails.tipos[0] }} " >{{ pokemonDetails.name?.replaceAll('-',' ') | capitalize  }}</h2>
+            <h2 class="name  {{ pokemonDetails.tipo }} " >{{ pokemonDetails.name?.replaceAll('-',' ') | capitalize  }}</h2>
             <h2 class="number">#{{ pokemonDetails.numero}}</h2>
-            <h2>{{ pokemonDetails.evolucoes}}</h2>
-            <p class="tipo">{{ pokemonDetails.tipos[0] }} {{ pokemonDetails.tipos[1] }}</p>
-            <p class="altura">altura{{ pokemonDetails.altura | convertToCentimeters :'symbol-narrow' }} cm </p>
-            <p class="peso">peso{{ pokemonDetails.peso | convertToKilograms  }} kg </p>
+            <div class="tipos">
+            <p class="tipo1 {{ pokemonDetails.tipos[0] }}">{{ pokemonDetails.tipos[0] }} </p>
+            <p *ngIf="pokemonDetails.tipos[1]" class="tipo2  {{ pokemonDetails.tipos[1] }}">{{ pokemonDetails.tipos[1] }}</p>
+            </div>
+            <div class="peso-altura">
+            <div class="div-status">
+              <p class="altura">altura: </p>
+              <p>{{ pokemonDetails.altura | convertToCentimeters :'symbol-narrow' }} cm</p>
+            </div>
+            <div class="div-status">
+              <p class="peso">peso: </p>
+              <p>{{ pokemonDetails.peso | convertToKilograms  }} kg </p>
+            </div>
+          </div>
         </div>
         <div *ngIf="activeTab === 2">
           <div class="row">
