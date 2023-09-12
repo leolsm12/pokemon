@@ -98,12 +98,18 @@ export class PokemonComponent implements OnInit {
   }
 
   div(){
-    document.querySelectorAll('.lista-pk li').forEach((elementoLi): void => {
-      this.renderer.setStyle(elementoLi, 'width', '23%');
-    });
-    document.querySelectorAll('.lista-pk').forEach((elementoLi): void => {
-      this.renderer.setStyle(elementoLi, 'left', '0');
-    });
+    if (window.innerWidth < 460) {
+      document.querySelectorAll('.lista-pk li').forEach((elementoLi): void => {
+        this.renderer.setStyle(elementoLi, 'width', '50%');
+      });
+      console.log("A largura da tela é menor que 768 pixels.");
+    } else {
+      document.querySelectorAll('.lista-pk li').forEach((elementoLi): void => {
+        this.renderer.setStyle(elementoLi, 'width', '25%');
+      });
+      console.log("A largura da tela é maior ou igual a 768 pixels.");
+    }
+    
   }
   divOff(){
     document.querySelectorAll('.lista-pk').forEach((elementoLi): void => {

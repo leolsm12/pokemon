@@ -38,6 +38,9 @@ import { CardDetailComponent } from './card-detail/card-detail.component';
     AppRoutingModule,
     
   ],
+  exports: [
+    PesquisaComponent
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

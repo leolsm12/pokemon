@@ -1,24 +1,13 @@
-<div class="header">
-    <h2 (click)="zerarOffset()" class="poke" routerLink="./pokemon">
-        <img class="icon " src="assets/icons/ball.png" alt="home">
-        Pokemons
-    </h2>
-    <h2 class="pesquisa" routerLink="./pesquisa">
-        <img class="icon " src="assets/icons/loupe.png" alt="pesquisa">
-        Pesquisar
-    </h2>
-    <h2 class="info" routerLink="./informacoes">
-        <img class="icon " src="assets/icons/information.png" alt="pesquisa">
-        Informações
-    </h2>
-    <h2 class="link">
-        <a href="https://www.linkedin.com/in/leoschaffermota/"><i class="fa-brands fa-linkedin"></i></a>
-    </h2>
-    <h2 class="git" >
-        <a href="https://github.com/leolsm12/"><i class="fa-brands fa-square-github" ></i></a>
-    </h2>
-    <!-- <a class="link" href="https://www.linkedin.com/in/leoschaffermota/"><i class="fa-brands fa-linkedin"></i></a>
-    <a class="git" href="https://github.com/leolsm12/"><i class="fa-brands fa-square-github" ></i></a>
-      -->
-</div>
-
+<nav class="navbar navbar-dark bg-dark shadow-lg">
+    <a class="navbar-brand" (click)="zerarOffset()" routerLink="./pokemon"><img class="iconPokemon" src="./assets/icons/Pokemon-Logo-Background-PNG.png" alt=""></a>
+    <a class="navbar-brand" routerLink="./pesquisa"></a>
+    <a class="navbar-brand"></a>
+    <div class="icon-link">
+        <a class="navbar-brand" href="https://www.linkedin.com/in/leoschaffermota/"><i class="fa-brands fa-linkedin"></i></a>
+        <a class="navbar-brand" href="https://github.com/leolsm12"><i class="fa-brands fa-square-github"></i></a>
+    </div>
+    <form class="form-inline ">
+        <input [(ngModel)]="searchTerm" class="form-control mr-sm-2" type="text" placeholder="Pesquisar" aria-label="Pesquisar">
+        <button (click)="chamarMetodoComponenteB(); mudarPagina() " class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
+</nav>

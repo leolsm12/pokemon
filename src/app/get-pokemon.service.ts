@@ -39,9 +39,9 @@ export class GetPokemonService {
     const url = `${this.myURL}/${pokemonNameOrId}`;
     return this.http.get(url);
   }
-  // getPokemonById(): Observable<{results: IPokemon}> {
-  //   return this.http.get<{results: IPokemon}>(`${this.myURL}/${this.pokemonId}`);
-  // }
+   //getPokemonById(): Observable<{results: IPokemon}> {
+   //  return this.http.get<{results: IPokemon}>(`${this.myURL}/${this.pokemonId}`);
+   //}
   
   getPokemonDetails(url: string): Observable<IPokemon> {
     return this.http.get<IPokemon>(url);

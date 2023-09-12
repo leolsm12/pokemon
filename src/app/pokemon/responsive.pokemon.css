@@ -1,17 +1,11 @@
-@media (max-width: 440px) {
-    .lista-pk ul {   
+@media  ( max-width: 460px) {
+   .lista-pk ul {   
         list-style: none;
         position: relative;
-        margin-left: 2.2rem;
-        column-gap: 80px;
-    }
+    }   
+ 
     .lista-pk li {
-        display: inline-block;
-        width: 20%;
-        box-sizing: border-box;
-        cursor: pointer;
-        position: relative;
-        right: 10px;
+      width: 50%;
     }
     .card-list {
         width: 145px;
@@ -29,8 +23,6 @@
     }
     .lista-pk {
         position: relative;
-        left: 0;
-        margin-right: 0;
     }
 
     .previous {
@@ -76,7 +68,10 @@
         font-size: 20px;
         padding-bottom: 5px;
     }
+  
 
 
 
 }
+
+

@@ -1,142 +1,156 @@
 <div class="btn-group button-top" role="group" aria-label="Basic example">
-    <button (click)="loadPrevious();" type="button" class="btn previous">anterior</button>
-    <button (click)="loadNext();"type="button" class="btn next">proximo</button>
+  <button (click)="loadPrevious();" type="button" class="btn previous">anterior</button>
+  <button (click)="loadNext();" type="button" class="btn next">proximo</button>
 </div>
-<div class="poke">
-<div class="lista-pk">
+<div class="poke mx-auto " style="width: 80%; gap:2%;">
+  <div class="lista-pk row">
     <ul>
-        <li *ngFor="let pokemon of pokemonsFotos; let i = index">
-            <div
-            [class.selecionado]="itemSelecionado === i"
-            class="card card-list {{ pokemon.tipo }}"
-            (click)="poke = true; div(); getPokemonDetails(pokemon.url); scrollToTop(); selecionarItem(i); this.cardSelected = true"
-              >
-                <div class="card-body">
-                  <img class="pk-img" [src]="pokemon.foto ? pokemon.foto: pokemon.fotoR " alt="{{ pokemon.name }}" >
-                  <h5 class="pk-num">#{{ pokemon.number }}</h5>
-                  <h3 class="card-title"> {{ pokemon.nome?.replaceAll('-', ' ') | capitalize }} </h3>
-                </div>
-              </div>
-          </li>
-      </ul>
+      <li class="mx-auto" *ngFor="let pokemon of pokemonsFotos; let i = index">
+        <div [class.selecionado]="itemSelecionado === i" class="card card-list col mx-auto {{ pokemon.tipo }}"
+          (click)="poke = true; div(); getPokemonDetails(pokemon.url); scrollToTop(); selecionarItem(i); this.cardSelected = true">
+          <div class="card-body  mx-auto d-flex flex-column align-items-center" >
+            <img class="pk-img " [src]="pokemon.foto ? pokemon.foto: pokemon.fotoR " alt="{{ pokemon.name }}">
+            <h5 class="pk-num mx-auto">#{{ pokemon.number }}</h5>
+            <h3 class="card-title mx-auto centralizar-texto "> {{ pokemon.nome?.replaceAll('-', ' ') | capitalize }} </h3>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
-<div *ngIf="poke" class= "detalhes-pk">
-  <div class=" card pokeDetail {{ pokemonDetails.tipo }} "  >
-    <img [src]="pokemonDetails.imagem" alt=" {{pokemonDetails.name}}">
-    <div class="card-body tab-content">
-      <div class="btn-group button-detail-card">
-        <a class="btn  info" [class.active]="activeTab === 1" (click)="changeTab(1)" >Info</a>
-        <a class="btn  stats" [class.active]="activeTab === 2" (click)="changeTab(2)">Stats</a>
-        <a class="btn  evo" [class.active]="activeTab === 3" (click)="changeTab(3)">Evo</a>
-      </div>
-      <div class="detail-card">
-        <div *ngIf="activeTab === 1">
-            <h2 class="name  {{ pokemonDetails.tipo }} " >{{ pokemonDetails.name?.replaceAll('-',' ') | capitalize  }}</h2>
+  <div *ngIf="poke" class="detalhes-pk ">
+    <div class=" card pokeDetail {{ pokemonDetails.tipo }}  ">
+      <img [src]="pokemonDetails.imagem" alt=" {{pokemonDetails.name}}">
+      <div class="card-body tab-content">
+        <div class="btn-group button-detail-card">
+          <a class="btn  info" [class.active]="activeTab === 1" (click)="changeTab(1)">Info</a>
+          <a class="btn  stats" [class.active]="activeTab === 2" (click)="changeTab(2)">Stats</a>
+          <a class="btn  evo" [class.active]="activeTab === 3" (click)="changeTab(3)">Evo</a>
+        </div>
+        <div class="detail-card">
+          <div *ngIf="activeTab === 1">
+            <h2 class="name  {{ pokemonDetails.tipo }} ">{{ pokemonDetails.name?.replaceAll('-',' ') | capitalize }}
+            </h2>
             <h2 class="number">#{{ pokemonDetails.numero}}</h2>
             <div class="tipos">
-            <p class="tipo1 {{ pokemonDetails.tipos[0] }}">{{ pokemonDetails.tipos[0] }} </p>
-            <p *ngIf="pokemonDetails.tipos[1]" class="tipo2  {{ pokemonDetails.tipos[1] }}">{{ pokemonDetails.tipos[1] }}</p>
+              <p class="tipo1 {{ pokemonDetails.tipos[0] }}">{{ pokemonDetails.tipos[0] }} </p>
+              <p *ngIf="pokemonDetails.tipos[1]" class="tipo2  {{ pokemonDetails.tipos[1] }}">{{ pokemonDetails.tipos[1]
+                }}</p>
             </div>
             <div class="peso-altura">
-            <div class="div-status">
-              <p class="altura">altura: </p>
-              <p>{{ pokemonDetails.altura | convertToCentimeters :'symbol-narrow' }} cm</p>
-            </div>
-            <div class="div-status">
-              <p class="peso">peso: </p>
-              <p>{{ pokemonDetails.peso | convertToKilograms  }} kg </p>
+              <div class="div-status">
+                <p class="altura">altura: </p>
+                <p>{{ pokemonDetails.altura | convertToCentimeters :'symbol-narrow' }} cm</p>
+              </div>
+              <div class="div-status">
+                <p class="peso">peso: </p>
+                <p>{{ pokemonDetails.peso | convertToKilograms }} kg </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div *ngIf="activeTab === 2">
-          <div class="row">
-            <div class="col stat-name">{{ pokemonDetails.stats[0].stat.name }}</div>
-            <div class="col stat-number">
-              <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-                <div class="{{ pokemonDetails.tipo }} progress-bar progress-bar-striped progress-bar-animated" [ngStyle]="{'width.%': pokemonDetails.stats[0].base_stat}">
-                  {{ pokemonDetails.stats[0].base_stat }}
+          <div *ngIf="activeTab === 2">
+            <div class="row">
+              <div class="col stat-name">{{ pokemonDetails.stats[0].stat.name }}</div>
+              <div class="col stat-number">
+                <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="70"
+                  aria-valuemin="0" aria-valuemax="100">
+                  <div class="{{ pokemonDetails.tipo }} progress-bar progress-bar-striped progress-bar-animated"
+                    [ngStyle]="{'width.%': pokemonDetails.stats[0].base_stat}">
+                    {{ pokemonDetails.stats[0].base_stat }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col stat-name">{{ pokemonDetails.stats[1].stat.name }}</div>
+              <div class="col stat-number">
+                <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="70"
+                  aria-valuemin="0" aria-valuemax="100">
+                  <div class="{{ pokemonDetails.tipo }} progress-bar progress-bar-striped progress-bar-animated"
+                    [ngStyle]="{'width.%': pokemonDetails.stats[1].base_stat}">
+                    {{ pokemonDetails.stats[1].base_stat }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col stat-name">{{ pokemonDetails.stats[2].stat.name }}</div>
+              <div class="col stat-number">
+                <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="70"
+                  aria-valuemin="0" aria-valuemax="100">
+                  <div class="{{ pokemonDetails.tipo }} progress-bar progress-bar-striped progress-bar-animated"
+                    [ngStyle]="{'width.%': pokemonDetails.stats[2].base_stat}">
+                    {{ pokemonDetails.stats[2].base_stat }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col stat-name stat-comp">
+                <p> {{ pokemonDetails.stats[3].stat.name.replace('-', ' ').split(' ')[0] }}
+                  <br> {{ pokemonDetails.stats[3].stat.name.replace('-', ' ').split(' ')[1] }}
+                </p>
+              </div>
+              <div class="col stat-number">
+                <div id="porcentagem-composta" class="progress" role="progressbar" aria-label="Animated striped example"
+                  aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                  <div class="{{ pokemonDetails.tipo }} progress-bar progress-bar-striped progress-bar-animated "
+                    [ngStyle]="{'width.%': pokemonDetails.stats[3].base_stat}">
+                    {{ pokemonDetails.stats[3].base_stat }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col stat-name stat-comp">
+                <p> {{ pokemonDetails.stats[4].stat.name.replace('-', ' ').split(' ')[0] }}
+                  <br>
+                  {{ pokemonDetails.stats[4].stat.name.replace('-', ' ').split(' ')[1] }}
+                </p>
+              </div>
+              <div class="col stat-number">
+                <div id="porcentagem-composta" class="progress" role="progressbar" aria-label="Animated striped example"
+                  aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                  <div class="{{ pokemonDetails.tipo }} progress-bar progress-bar-striped progress-bar-animated "
+                    [ngStyle]="{'width.%': pokemonDetails.stats[4].base_stat}">
+                    {{ pokemonDetails.stats[4].base_stat }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col stat-name">{{ pokemonDetails.stats[5].stat.name }}</div>
+              <div class="col stat-number">
+                <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="70"
+                  aria-valuemin="0" aria-valuemax="100">
+                  <div class="{{ pokemonDetails.tipo }} progress-bar progress-bar-striped progress-bar-animated "
+                    [ngStyle]="{'width.%': pokemonDetails.stats[5].base_stat}">
+                    {{ pokemonDetails.stats[5].base_stat }}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col stat-name">{{ pokemonDetails.stats[1].stat.name }}</div>
-            <div class="col stat-number">
-              <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-                <div class="{{ pokemonDetails.tipo }} progress-bar progress-bar-striped progress-bar-animated" [ngStyle]="{'width.%': pokemonDetails.stats[1].base_stat}">
-                  {{ pokemonDetails.stats[1].base_stat }}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col stat-name">{{ pokemonDetails.stats[2].stat.name }}</div>
-            <div class="col stat-number">
-              <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-                <div class="{{ pokemonDetails.tipo }} progress-bar progress-bar-striped progress-bar-animated" [ngStyle]="{'width.%': pokemonDetails.stats[2].base_stat}">
-                  {{ pokemonDetails.stats[2].base_stat }}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col stat-name stat-comp">
-              <p> {{ pokemonDetails.stats[3].stat.name.replace('-', ' ').split(' ')[0] }} 
-                <br> {{ pokemonDetails.stats[3].stat.name.replace('-', ' ').split(' ')[1] }}</p>
-              </div>
-            <div class="col stat-number">
-              <div id="porcentagem-composta" class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-                <div  class="{{ pokemonDetails.tipo }} progress-bar progress-bar-striped progress-bar-animated " [ngStyle]="{'width.%': pokemonDetails.stats[3].base_stat}">
-                  {{ pokemonDetails.stats[3].base_stat }}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col stat-name stat-comp">
-              <p> {{ pokemonDetails.stats[4].stat.name.replace('-', ' ').split(' ')[0] }} 
-                <br>
-                 {{ pokemonDetails.stats[4].stat.name.replace('-', ' ').split(' ')[1] }}</p>
-            </div>
-            <div class="col stat-number">
-              <div id="porcentagem-composta" class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-                <div  class="{{ pokemonDetails.tipo }} progress-bar progress-bar-striped progress-bar-animated " [ngStyle]="{'width.%': pokemonDetails.stats[4].base_stat}">
-                  {{ pokemonDetails.stats[4].base_stat }}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col stat-name">{{ pokemonDetails.stats[5].stat.name }}</div>
-            <div class="col stat-number">
-              <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-                <div class="{{ pokemonDetails.tipo }} progress-bar progress-bar-striped progress-bar-animated " [ngStyle]="{'width.%': pokemonDetails.stats[5].base_stat}">
-                  {{ pokemonDetails.stats[5].base_stat }}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div *ngIf="activeTab === 3">
-          <div > 
-            <ul>
-              <li *ngFor="let pokemon of evo" >
-                <div (click)="getPokemonDetails(pokemon.url); changeTab(1)" class="evos {{ pokemon.tipo }}" >
-                  <p class="pokeDetailName">{{pokemon.name}}</p>
-                  <img class="pokeDetailImage" [src]="pokemon.imagem ? pokemon.imagem: pokemon.imagem_2 " alt="{{pokemon.name}}">
-                </div>
+          <div *ngIf="activeTab === 3">
+            <div>
+              <ul>
+                <li *ngFor="let pokemon of evo">
+                  <div (click)="getPokemonDetails(pokemon.url); changeTab(1)" class="evos {{ pokemon.tipo }}">
+                    <p class="pokeDetailName">{{pokemon.name}}</p>
+                    <img class="pokeDetailImage" [src]="pokemon.imagem ? pokemon.imagem: pokemon.imagem_2 "
+                      alt="{{pokemon.name}}">
+                  </div>
                 </li>
-            </ul>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+
   </div>
-
-
 </div>
-</div>
- <div class="btn-group bnp button-botton" role="group" aria-label="Basic example">
+<div class="btn-group bnp button-botton" role="group" aria-label="Basic example">
   <button (click)="loadPrevious();" type="button" class="btn previous">anterior</button>
-  <button (click)="loadNext();"type="button" class="btn next">proximo</button>
+  <button (click)="loadNext();" type="button" class="btn next">proximo</button>
 </div>

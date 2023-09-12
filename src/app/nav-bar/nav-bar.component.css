@@ -1,4 +1,25 @@
-
+.navbar-brand > img{
+    width: 10rem;
+}
+.fa-brands{
+    font-size: 2rem;
+}
+/*.nav {
+    height: 40px;
+}
+.nav-link{
+    font-size: 30px;
+   
+}
+.outs{
+    margin-left: 28rem;
+}
+.icon{
+    width: 5px;
+}
+.iconPokemon{
+    width: 9rem;
+}
 .header {
     overflow: hidden;
     display: flex;
@@ -87,3 +108,4 @@ a {
     }
     
 }
+*/
